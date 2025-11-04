@@ -60,5 +60,9 @@ def randomize_words(text: str, seed: Optional[int] = None) -> str:
         random.seed(seed)
     
     words = text.split()
-    randomized_words = [randomize_string(word) for word in words]
+    randomized_words = []
+    for word in words:
+        chars = list(word)
+        random.shuffle(chars)
+        randomized_words.append(''.join(chars))
     return ' '.join(randomized_words)
